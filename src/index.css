@@ -1,3 +1,11 @@
+/* Reset dei margini e padding per evitare comportamenti imprevisti */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Definizione della variabile :root per il tema */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -13,28 +21,35 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Link base styling */
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
 
+/* Body styling */
 body {
   margin: 0;
+  padding: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  flex-direction: column; /* Modifica per una disposizione verticale */
+  min-height: 100vh; /* Imposta l'altezza minima del body al 100% della finestra */
+  background-color: #242424; /* Colore di sfondo di base */
+  color: rgba(255, 255, 255, 0.87);
 }
 
+/* Tipografia di base */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
+/* Pulsante base */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -46,23 +61,152 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+/* Styling per la Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.navbar .logo h2 {
+  color: white;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar .nav-links li {
+  margin: 0 20px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+/* Navbar per dispositivi mobili */
+.navbar .hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar .hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+}
+
+.navbar .nav-links.mobile {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  background-color: #333;
+  width: 200px;
+  text-align: center;
+}
+
+.navbar .nav-links.mobile li {
+  margin: 20px 0;
+}
+
+/* Media query per la responsività della navbar */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
   }
-  a:hover {
-    color: #747bff;
+
+  .navbar .hamburger {
+    display: block;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+/* Centrare il contenuto verticalmente e orizzontalmente */
+.centered-content {
+  display: flex;
+  justify-content: center; /* Centra orizzontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100vh; /* Imposta l'altezza a 100% della finestra */
+  text-align: center; /* Centra il testo */
+  background-color: #f0f0f0; /* Sfondo chiaro (puoi cambiarlo) */
+}
+
+/* Stile per il contenuto principale */
+.home-content {
+  max-width: 800px; /* Limita la larghezza del contenuto */
+  margin: 0 auto; /* Centra il contenuto */
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media query per schermi più piccoli */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 10px; /* Riduci il padding su schermi piccoli */
   }
+}
+
+/* Styling per il modulo di contatto */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+}
+
+form input,
+form textarea {
+  padding: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+/* Servizi */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+/* Media query per schermi piccoli (Mobile-first) */
+@media (max-width: 768px) {
+  /* Puoi aggiungere altre regole personalizzate per il mobile qui */
 }

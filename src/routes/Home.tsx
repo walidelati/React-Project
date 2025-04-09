@@ -2,9 +2,11 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-      <p>Benvenuto nella pagina Home!</p>
+    <div className="centered-content">
+      <div className="home-content">
+        <h1>Benvenuto nella Home Page</h1>
+        <p>Questa è la pagina principale del nostro sito. Siamo felici di averti qui!</p>
+      </div>
     </div>
   );
 };

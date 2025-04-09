@@ -1,28 +1,30 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './routes/Home';
 import About from './routes/About';
+import Contact from './routes/Contact';
+import Services from './routes/Services';
+import Navbar from './components/Navbar';
+import Footer from './components/footer';
+import './index.css'; // Importa gli stili globali
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div>
-        <nav>
-          <button>
-            <Link to="/">Home</Link>
-          </button>
-          <button>
-            <Link to="/about">About</Link>
-          </button>
-        </nav>
-
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
+      <div className="app">
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;
