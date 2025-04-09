@@ -1,7 +1,16 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
+// Configurazione di Vite
 export default defineConfig({
   plugins: [react()],
-})
+  server: {
+    hmr: {
+      protocol: 'ws',
+      host: 'localhost',
+    },
+  },
+  build: {
+    sourcemap: false, // Disabilita i sourcemaps se non necessari
+  }
+});
