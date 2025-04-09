@@ -12,7 +12,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgb(0, 0, 0);
   background-color: #242424;
 
   font-synthesis: none;
@@ -39,8 +39,8 @@ body {
   display: flex;
   flex-direction: column; /* Modifica per una disposizione verticale */
   min-height: 100vh; /* Imposta l'altezza minima del body al 100% della finestra */
-  background-color: #242424; /* Colore di sfondo di base */
-  color: rgba(255, 255, 255, 0.87);
+  background-color: #333; /* Colore di sfondo di base */
+  color: rgb(0, 0, 0);
 }
 
 /* Tipografia di base */
@@ -57,7 +57,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #000000;
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -94,7 +94,7 @@ button:focus-visible {
 }
 
 .navbar .nav-links a {
-  color: white;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   font-size: 18px;
 }
@@ -108,7 +108,7 @@ button:focus-visible {
 .navbar .hamburger .bar {
   width: 25px;
   height: 3px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin: 5px;
 }
 
@@ -186,7 +186,7 @@ form textarea {
 form button {
   padding: 10px 20px;
   background-color: #333;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 16px;
   border: none;
   cursor: pointer;
