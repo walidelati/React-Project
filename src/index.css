@@ -1,69 +1,77 @@
-/* Reset dei margini e padding per evitare comportamenti imprevisti */
+/* RESET BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Definizione della variabile :root per il tema */
+/* TEMA GLOBALE E TIPOGRAFIA */
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgb(0, 0, 0);
-  background-color: #242424;
-
+  line-height: 1.5;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Link base styling */
+/* BODY BASE */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #191970; /* Midnight Blue */
+  color: rgb(255, 153, 0); /* Orange testo base */
+}
+
+/* LINK */
 a {
   font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  color: #ffffff;
+  text-decoration: none;
+  display: flex;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #7572f6;
 }
 
-/* Body styling */
-body {
-  margin: 0;
-  padding: 0;
+/* SEZIONI LINK */
+.info-links,
+.social-links {
   display: flex;
-  flex-direction: column; /* Modifica per una disposizione verticale */
-  min-height: 100vh; /* Imposta l'altezza minima del body al 100% della finestra */
-  background-color: #333; /* Colore di sfondo di base */
-  color: rgb(0, 0, 0);
+  justify-content: center;
+  gap: 30px;
+  margin-top: 10px;
+  align-items: center;
 }
 
-/* Tipografia di base */
+/* TITOLI */
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-/* Pulsante base */
-button {
+/* PULSANTI */
+button,
+form button {
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  border: none;
+  padding: 10px 20px;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #000000;
+  background-color: #ff9900;
+  border: 2px solid #cc7000;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
-  border-color: #646cff;
+button:hover,
+form button:hover {
+  background-color: #e68a00;
 }
 
 button:focus,
@@ -71,63 +79,76 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Styling per la Navbar */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 10px 20px;
+  padding: 20px;
+  position: relative;
+  background-color: #191970;
+  z-index: 10;
 }
 
-.navbar .logo h2 {
-  color: white;
-}
-
-.navbar .nav-links {
-  list-style: none;
+/* Hamburger menu SEMPRE visibile */
+.hamburger {
   display: flex;
-}
-
-.navbar .nav-links li {
-  margin: 0 20px;
-}
-
-.navbar .nav-links a {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-size: 18px;
-}
-
-/* Navbar per dispositivi mobili */
-.navbar .hamburger {
-  display: none;
+  flex-direction: column;
   cursor: pointer;
+  gap: 5px;
+  z-index: 20;
 }
 
-.navbar .hamburger .bar {
-  width: 25px;
+.hamburger .bar {
+  width: 30px;
   height: 3px;
-  background-color: rgb(255, 255, 255);
-  margin: 5px;
+  background-color: rgb(235, 230, 220);
+  border-radius: 3px;
 }
 
-.navbar .nav-links.mobile {
-  display: block;
+/* Menu: inizialmente nascosto */
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 15px;
   position: absolute;
   top: 60px;
   right: 20px;
-  background-color: #333;
-  width: 200px;
+  background: #191970;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Quando aperto */
+.nav-links.mobile {
+  display: flex;
+}
+
+/* CONTENUTO CENTRATO */
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   text-align: center;
+  background-color: #ffffff;
 }
 
-.navbar .nav-links.mobile li {
-  margin: 20px 0;
+/* HOME CONTENT BOX */
+.home-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Media query per la responsività della navbar */
 @media (max-width: 768px) {
+  .home-content {
+    padding: 10px;
+  }
+
   .navbar .nav-links {
     display: none;
   }
@@ -137,33 +158,7 @@ button:focus-visible {
   }
 }
 
-/* Centrare il contenuto verticalmente e orizzontalmente */
-.centered-content {
-  display: flex;
-  justify-content: center; /* Centra orizzontalmente */
-  align-items: center; /* Centra verticalmente */
-  height: 100vh; /* Imposta l'altezza a 100% della finestra */
-  text-align: center; /* Centra il testo */
-  background-color: #f0f0f0; /* Sfondo chiaro (puoi cambiarlo) */
-}
-
-/* Stile per il contenuto principale */
-.home-content {
-  max-width: 800px; /* Limita la larghezza del contenuto */
-  margin: 0 auto; /* Centra il contenuto */
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Media query per schermi più piccoli */
-@media (max-width: 768px) {
-  .home-content {
-    padding: 10px; /* Riduci il padding su schermi piccoli */
-  }
-}
-
-/* Styling per il modulo di contatto */
+/* FORM CONTATTI */
 form {
   display: flex;
   flex-direction: column;
@@ -177,26 +172,14 @@ form div {
 
 form input,
 form textarea {
+  background-color: white;
+  color: black;
+  border: 1px solid #ccc;
   padding: 10px;
-  margin-top: 5px;
-  font-size: 16px;
-  width: 100%;
+  border-radius: 5px;
 }
 
-form button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: rgb(255, 255, 255);
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-form button:hover {
-  background-color: #555;
-}
-
-/* Servizi */
+/* UL & LI */
 ul {
   list-style: none;
   padding: 0;
@@ -206,7 +189,33 @@ ul li {
   margin-bottom: 10px;
 }
 
-/* Media query per schermi piccoli (Mobile-first) */
-@media (max-width: 768px) {
-  /* Puoi aggiungere altre regole personalizzate per il mobile qui */
+/* FOOTER */
+.footer {
+  background-color: #191970;
+  padding: 20px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-logo img {
+  width: 100px;
+  height: auto;
+}
+
+.text-outline {
+  text-shadow:
+    -0.5px -0.5px 0 #cc7000,  
+     0.5px -0.5px 0 #cc7000,
+    -0.5px  0.5px 0 #cc7000,
+    0.5px  0.5px 0 #cc7000;
+}
+
+.logo img {
+  width: 75px; /* o qualsiasi dimensione desideri */
+  height: auto; /* mantiene le proporzioni */
+  margin: 20px; /* spaziatura */
 }

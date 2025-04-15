@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo">
-        <h2>Logo</h2>
+        <h2 className="text-outline">LizardKicks</h2>
       </div>
       <ul className={`nav-links ${isMobile ? 'mobile' : ''}`}>
         <li><Link to="/">Home</Link></li>

@@ -5,7 +5,7 @@ import About from './routes/About';
 import Contact from './routes/Contact';
 import Services from './routes/Services';
 import Navbar from './components/Navbar';
-import Footer from './components/footer';
+import Footer from './components/Footer';
 import './index.css'; // Importa gli stili globali
 
 const App = () => {
