@@ -1,11 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import Gallery from "../components/Gallery";
+import Footer from "../components/Footer";
 
 const images = [
-  "/images/alcova1.jpg",
-  "/images/alcova2.jpg",
-  "/images/alcova3.jpg",
-  "/images/alcova4.jpg"
+  "/images/alcova1.png",
+  "/images/alcova2.png",
+  "/images/alcova3.png",
+  "/images/alcova4.png"
 ];
 
 const Home = () => {
@@ -38,18 +39,18 @@ const Home = () => {
       <div className="relative w-full h-screen overflow-hidden font-sans bg-black">
         <div
           ref={sliderRef}
-          className="w-full h-full flex overflow-x-auto scroll-smooth no-scrollbar snap-x snap-mandatory"
+          className="w-full h-full flex overflow-x-auto scroll-smooth snap-x snap-mandatory no-scrollbar"
         >
           {images.map((img, index) => (
             <div
               key={index}
               className="flex-shrink-0 w-full h-full snap-start bg-cover bg-center"
               style={{ backgroundImage: `url(${img})` }}
-            ></div>
+            />
           ))}
         </div>
 
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
+        <div className="absolute inset-0 bg-black/50 z-10" />
 
         <div className="absolute z-20 top-0 left-0 w-full h-full flex items-center justify-center text-white text-center px-4">
           <div>
@@ -64,6 +65,7 @@ const Home = () => {
       </div>
 
       <Gallery />
+      <Footer />
     </>
   );
 };
