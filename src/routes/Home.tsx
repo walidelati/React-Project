@@ -52,16 +52,18 @@ const Home = () => {
 
         <div className="absolute inset-0 bg-black/50 z-10" />
 
-        <div className="absolute z-20 top-0 left-0 w-full h-full flex items-center justify-center text-white text-center px-4">
-          <div>
-            <h1 className="text-5xl md:text-7xl font-semibold mb-6 tracking-tight leading-tight">
-              ALCOVA 2024
-            </h1>
-            <p className="text-lg md:text-2xl max-w-2xl mx-auto">
-              Design. Architecture. Performance. Milano Design Week.
-            </p>
-          </div>
-        </div>
+<div className="absolute z-20 bottom-16 left-0 w-full flex justify-center text-white text-center px-4">
+  <div>
+    <h1 className="text-4xl md:text-6xl font-semibold mb-4 tracking-tight leading-tight">
+      ALCOVA 2024
+    </h1>
+    <p className="text-md md:text-xl max-w-2xl mx-auto">
+      Design. Architecture. Performance. Milano Design Week.
+    </p>
+  </div>
+</div>
+
+
       </div>
 
       <Gallery />

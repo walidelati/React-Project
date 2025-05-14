@@ -1,46 +1,91 @@
-import React from "react";
+import React, { useState } from "react";
 
 const items = [
   {
-    title: "Blaue",
-    description: "Alcova 2023 — A sculptural installation exploring material presence.",
-    image: "/images/gallery1.jpg",
+    title: "ALCOVA MILANO 2024",
+    image: "/images/gallery1.png",
+    description:
+      "The seventh edition of Alcova will be set in two of the most extraordinary villas of the Milan metropolitan area: Villa Borsani and Villa Bagatti Valsecchi."
   },
   {
-    title: "Anastasia Vitkina",
-    description: "Functional objects in recycled plastic. Explorative minimalism.",
-    image: "/images/gallery2.jpg",
+    title: "ALCOVA MIAMI 2024",
+    image: "/images/gallery2.png",
+    description:
+      "The second international edition of Alcova is set to unfold at Miami’s historic River Inn, in the vibrant South River Drive Historic District in East Little Havana."
   },
   {
-    title: "Cocci Studio",
-    description: "Textural ceramics from Milan. Raw, irregular, tactile.",
-    image: "/images/gallery3.jpg",
+    title: "ALCOVA MILANO 2023",
+    image: "/images/gallery3.png",
+    description:
+      "With its fifth edition coming up, Alcova continues its exploration of the city of Milan with an exciting new location – the former Porta Vittoria abattoir on Via Molise."
   },
+  {
+    title: "ALCOVA MIAMI 2023",
+    image: "/images/gallery4.png",
+    description:
+      "Alcova is excited to unveil its first overseas edition during Miami Art Week 2023. Set in the Gold Dust Motel, one of the architectural icons of Miami."
+  },
+  {
+    title: "ALCOVA MILANO 2022",
+    image: "/images/gallery5.png",
+    description:
+      "Alcova will bring back to life its beautiful Inganni location where design merges with nature, expanding its research even further and deeper."
+  },
+  {
+    title: "ALCOVA 2021",
+    image: "/images/gallery6.png",
+    description:
+      "The 2021 edition highlighted hidden architectural gems in Milan and launched bold new ideas in performance and installation."
+  }
 ];
 
+const itemsPerPage = 3;
+
 const Gallery = () => {
+  const [page, setPage] = useState(0);
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const currentItems = items.slice(
+    page * itemsPerPage,
+    page * itemsPerPage + itemsPerPage
+  );
+
   return (
-    <section className="bg-white text-black py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-semibold mb-12 tracking-tight">Projects from 2023</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {items.map((item, idx) => (
-            <div
+    <section className="bg-white text-black py-16 px-6 md:px-16">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold">EXHIBITIONS</h2>
+        <div className="space-x-2">
+          {Array.from({ length: totalPages }).map((_, idx) => (
+            <button
               key={idx}
-              className="group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-all duration-300"
+              onClick={() => setPage(idx)}
+              className={`px-3 py-1 text-sm font-medium rounded ${
+                page === idx ? "bg-black text-white" : "text-black hover:underline"
+              }`}
             >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="p-5">
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">{item.description}</p>
-              </div>
-            </div>
+              {idx + 1}
+            </button>
           ))}
         </div>
+      </div>
+
+      <div className="grid gap-8 md:grid-cols-3">
+        {currentItems.map((item, idx) => (
+          <div
+            key={idx}
+            className="rounded overflow-hidden shadow-md transition duration-300 hover:shadow-xl bg-white"
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              className="w-full h-64 object-cover"
+            />
+            <div className="p-4">
+              <h3 className="font-semibold text-base mb-2">{item.title}</h3>
+              <p className="text-sm leading-relaxed">{item.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
