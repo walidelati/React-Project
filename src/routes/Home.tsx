@@ -23,7 +23,7 @@ const Home = () => {
         style={{
           backgroundImage: `url(${images[current]})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center"
         }}
       ></div>
       <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -32,7 +32,7 @@ const Home = () => {
           Lizard Kicks
         </h1>
         <p className="text-lg md:text-2xl max-w-2xl">
-          Sneakers iconiche, collezioni esclusive e stile streetwear senza tempo.
+          Sneakers iconiche. Streetwear autentico. Stile senza tempo.
         </p>
       </div>
     </div>
